@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.allen.dao.EmployeeMapper">
+    <select id="selectEmployeeById" resultType="com.allen.domain.Employee">
+        select id ,last_Name as lastName ,gender,email from  employee where id=#{id};
+    </select>
+    <insert id="addEmployee">
+        insert into employee(last_Name,gender,email)values (#{lastName},#{gender},#{email})
+    </insert>
+    <update id="updateEmployee">
+        update employee set last_Name=#{lastName},gender=#{gender} where id=#{id}
+    </update>
+    <delete id="deleteEmployeeById">
+        delete from employee where id=#{id}
+    </delete>
+</mapper>
